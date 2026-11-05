@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bisleri Health - Executive Board Presentation Script</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  @page {
+    size: A4;
+    margin: 14mm 16mm 14mm 16mm;
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 8pt;
+      color: #718096;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1a202c;
+    background: #ffffff;
+    line-height: 1.5;
+    font-size: 9.5pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cover-header {
+    background: linear-gradient(135deg, #0a3d31 0%, #0f5c4a 60%, #15735d 100%);
+    color: #ffffff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #d98a9b;
+    box-shadow: 0 4px 14px rgba(15, 92, 74, 0.15);
+  }
+
+  .cover-top-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8.5pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #d98a9b;
+    margin-bottom: 8px;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24pt;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  .cover-subtitle {
+    font-size: 11pt;
+    font-weight: 400;
+    color: #c2e2d4;
+    margin: 0 0 14px 0;
+  }
+
+  .meta-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 8pt;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .meta-pill.highlight {
+    background: #d98a9b;
+    color: #0f5c4a;
+    font-weight: 700;
+  }
+
+  /* Executive Summary Box */
+  .exec-summary {
+    background: #f7faf9;
+    border: 1px solid #d1e7dd;
+    border-left: 4px solid #0f5c4a;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    font-size: 8.5pt;
+  }
+
+  .exec-summary h4 {
+    margin: 0 0 4px 0;
+    font-size: 9.5pt;
+    color: #0f5c4a;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Speaker Block */
+  .speaker-section {
+    margin-bottom: 22px;
+    page-break-inside: avoid;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+
+  .speaker-header {
+    background: #f1f8f5;
+    border-bottom: 1px solid #d1e7dd;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .speaker-identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .speaker-num {
+    background: #0f5c4a;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 8.5pt;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .speaker-role {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #0f5c4a;
+    margin: 0;
+  }
+
+  .speaker-meta-tags {
+    display: flex;
+    gap: 6px;
+  }
+
+  .badge-tag {
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-time {
+    background: #edf2f7;
+    color: #4a5568;
+  }
+
+  .badge-media {
+    background: #fdf2f4;
+    color: #b83253;
+    border: 1px solid #f6ccd5;
+  }
+
+  .speaker-body {
+    padding: 14px 18px;
+  }
+
+  .stage-direction {
+    background: #fff8f5;
+    border: 1px dashed #fbd38d;
+    color: #7b341e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 8.5pt;
+    font-style: italic;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stage-direction::before {
+    content: "🎬 STAGE DIRECTION:";
+    font-weight: 700;
+    font-style: normal;
+    font-size: 7.5pt;
+    color: #c05621;
+    letter-spacing: 0.06em;
+  }
+
+  .speech-text {
+    font-size: 9.3pt;
+    color: #2d3748;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .speech-text p {
+    margin: 0 0 8px 0;
+  }
+
+  .speech-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .quote-highlight {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: #0f5c4a;
+    background: #f0fdf4;
+    padding: 8px 14px;
+    border-left: 3px solid #0f5c4a;
+    border-radius: 0 6px 6px 0;
+    margin: 10px 0;
+    line-height: 1.45;
+  }
+
+  .key-deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #edf2f7;
+  }
+
+  .kd-item {
+    font-size: 8pt;
+  }
+
+  .kd-item strong {
+    color: #0f5c4a;
+    display: block;
+    font-size: 8.2pt;
+    margin-bottom: 2px;
+  }
+
+  .handoff-box {
+    background: #f7fafc;
+    border-top: 1px solid #edf2f7;
+    padding: 8px 18px;
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #4a5568;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .handoff-box strong {
+    color: #0f5c4a;
+    font-style: normal;
+    font-size: 7.5pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Q&A Defense Section */
+  .qa-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    page-break-inside: avoid;
+  }
+
+  .qa-q {
+    font-weight: 700;
+    color: #9b2c2c;
+    font-size: 9pt;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .qa-a {
+    color: #2d3748;
+    font-size: 8.5pt;
+    line-height: 1.45;
+  }
+
+  .qa-a strong {
+    color: #0f5c4a;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  .footer-bar {
+    border-top: 1px solid #e2e8f0;
+    margin-top: 24px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #a0aec0;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Cover Header -->
+  <div class="cover-header">
+    <div class="cover-top-tag">
+      <span>Bisleri International Pvt. Ltd. &bull; Category Expansion Strategy</span>
+      <span>Final Submission Script &bull; Fall 2026</span>
+    </div>
+    <h1 class="cover-title">BISLERI HEALTH &bull; BOARD PRESENTATION</h1>
+    <div class="cover-subtitle">Complete 8-Speaker Master Script, Multimedia Cues &amp; Executive Defense Strategy</div>
+    <div class="meta-pills">
+      <span class="meta-pill highlight">8 Speakers &bull; 16–20 Min Runtime</span>
+      <span class="meta-pill">Target Audience: Bisleri Executive Leadership Team</span>
+      <span class="meta-pill">Core Focus: 100% Bisleri Health (₹40–₹60 Pivot)</span>
+      <span class="meta-pill">Interactive Flagship Pavilion &amp; OOH Transit</span>
+    </div>
+  </div>
+
+  <!-- Executive Ground Rules -->
+  <div class="exec-summary">
+    <h4>Presentation Ground Rules &amp; Handoff Protocol</h4>
+    <p style="margin: 0 0 6px 0;">
+      Each speaker is allotted precisely <strong>2.0 to 2.5 minutes</strong>. Visual assets, local video clips (<strong>TGM.mp4</strong>, <strong>InterviewFilm_BisleriHealth.mp4</strong>, <strong>BisleriHealth_ProductAd.mp4</strong>, <strong>logo_animation.webp</strong>), and interactive HTML mockups are cued with exact timestamps. Maintain clear vocal transitions using the bolded <em>Handoff Cues</em> to sustain boardroom momentum.
+    </p>
+    <div style="font-size: 7.8pt; color: #4a5568;">
+      &bull; <strong>Master Deck:</strong> <code>index.html</code> &nbsp;|&nbsp;
+      &bull; <strong>Pavilion Walkthrough:</strong> <code>walkthrough.html</code> &nbsp;|&nbsp;
+      &bull; <strong>Key Financial Target:</strong> ₹10 Cr Budget &bull; 3.5x ROMI &bull; +18% Blended Gross Margin
+    </div>
+  </div>
+
+  <!-- ==================== SPEAKER 1 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 1</span>
+        <h3 class="speaker-role">Brand Evolution, Commodity Trap &amp; Strategic Pivot</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.0 MIN</span>
+        <span class="badge-tag badge-media">📹 logo_animation.webp</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Room is dimly lit. Projection screen displays the classic Bisleri Emerald wordmark on Slide 2 ("What Is New with Bisleri"). Speaker 1 stands center-stage addressing the leadership board.
+      </div>
+      <div class="speech-text">
+        <p>
+          "Leadership team, for half a century, this board has successfully ensured that in India, water means Bisleri. We dominate 60% of the packaged water market and drive ₹3,218 Crore in revenue. But on the ground, we are fighting over coins. We are constantly defending our territory in an exhausting ₹15 versus ₹20 price war against local, unorganized competitors. We have commoditized our own excellence.
+        </p>
+        <p>
+          Today, we step out of that price war. We are shifting from selling a ₹20 safe utility into owning a ₹40 to ₹60 margin-shielded functional wellness portfolio."
+        </p>
+      </div>
+      <div class="stage-direction">
+        Screen fades black for 1.5 seconds. Replay logo motion triggers <code>logo_animation.webp</code>. The Heritage Emerald green fluidly twists into Wellness Rose pink, revealing the human silhouette within the drop, ending on the primary vertical logo card.
+      </div>
+      <div class="speech-text">
+        <p>
+          "Welcome to <strong>Bisleri Health</strong>. The symbol you see before you is <em>'The Drop That Holds A Person.'</em> It embodies our 50-year heritage of trust while answering the future of restorative vitality. Our visual palette unites <strong>Heritage Emerald</strong> (50 years of Indian purity), <strong>Wellness Rose</strong> (cellular vitality and care), and <strong>Mineral Alabaster</strong> (freshness and balance).
+        </p>
+        <p>
+          To understand the real person who inspired this transformation, I hand over to Speaker 2 to introduce our core audience."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>Market Reality</strong>60% Category share, ₹3,218 Cr revenue under price war margin pressure.</div>
+        <div class="kd-item"><strong>The Value Shift</strong>From ₹20 commodity utility to ₹40–₹60 functional health habit.</div>
+        <div class="kd-item"><strong>Brand Identity</strong>'The Drop That Holds A Person' &bull; Emerald, Rose, Alabaster palette.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"I hand over to Speaker 2 to introduce our core audience and the urban paradox."</span>
+    </div>
+  </div>
+
+  <!-- ==================== SPEAKER 2 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 2</span>
+        <h3 class="speaker-role">Target Audience (Tara) &amp; The Urban Hydration Paradox</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.5 MIN</span>
+        <span class="badge-tag badge-media">📹 YouTube: Tara's Nonstop Routine (dWcT5NbsUks)</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 6 transitions in. The screen showcases the three distinct photographic portraits of Tara: Movement, Workday, and Evening Restoration, leading into the large TG Theater Frame.
+      </div>
+      <div class="speech-text">
+        <p>
+          "Thank you, Speaker 1. This entire strategic pivot is built for <strong>Tara</strong>. She is 31, an urban corporate professional, and represents a high-disposable-income demographic that our brand has historically under-monetized.
+        </p>
+        <p>
+          Tara’s day exists in three non-negotiable states:
+          <strong>01. Morning Movement</strong> — sweat, road runs, and cardio where electrolytes deplete rapidly;
+          <strong>02. Mindful Workday</strong> — back-to-back desk sessions, air-conditioned dehydration, and screen fatigue; and
+          <strong>03. Evening Restoration</strong> — cellular wind-down, skin elasticity, and inner peace."
+        </p>
+      </div>
+      <div class="stage-direction">
+        Speaker clicks play on the large center theater card: the YouTube film (<code>dWcT5NbsUks</code>) (Tara's Non-Stop Routine Launch Film) begins playing on screen.
+      </div>
+      <div class="speech-text">
+        <div class="quote-highlight">
+          "We don’t forget water because we don’t care; we forget because life doesn’t wait."
+        </div>
+        <p>
+          "As the film demonstrates, this is <strong>The Urban Hydration Paradox</strong>: professionals carry water bottles everywhere, yet live in chronic, low-grade cellular dehydration because plain water offers no sensory reward or physiological trigger.
+        </p>
+        <p>
+          Our <strong>Purpose</strong> is to turn routine sips into conscious acts of everyday vitality. Our <strong>Mission</strong> is to deliver precision functional hydration backed by the 50-year purity India trusts. And our <strong>Vision</strong> is to redefine India’s water category from safe utility into a thriving health habit.
+        </p>
+        <p>
+          Now, Speaker 3 will break down our market positioning and lifecycle strategy."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>Core Persona: Tara (31)</strong>Metro earner, fitness enthusiast, high stress, under-hydrated.</div>
+        <div class="kd-item"><strong>The 3 Daily Moments</strong>Morning Movement &bull; Mindful Workday &bull; Evening Restoration.</div>
+        <div class="kd-item"><strong>Strategic Foundations</strong>Purpose, Mission, and Vision grounding functional hydration.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Now, Speaker 3 will break down our market positioning and lifecycle strategy."</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== SPEAKER 3 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 3</span>
+        <h3 class="speaker-role">Strategic Frameworks: STP Model &amp; Product Life Cycle</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.0 MIN</span>
+        <span class="badge-tag badge-media">📊 Slide 9 &amp; 10 STP/PLC</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 9 (STP Model), Slide 10 (Brand Positioning Statement), and Slide 11 (Product Life Cycle) appear on screen with clear infographic tiles.
+      </div>
+      <div class="speech-text">
+        <p>
+          "Our STP framework grounds this ambition in actionable market data.
+        </p>
+        <p>
+          <strong>Segmentation:</strong> We segment along three core vectors:
+          <em>Demographic:</em> 22–45-year-old urban earners with disposable income;
+          <em>Psychographic:</em> proactive wellness seekers who balance mental clarity and fitness;
+          <em>Behavioral:</em> consumers navigating high-mobility commutes, fitness routines, and desk-bound fatigue.
+        </p>
+        <p>
+          <strong>Targeting:</strong> We hyper-focus on Tier 1 Metros and premium urban clusters who already purchase wellness supplements and show zero resistance to paying ₹40 to ₹60 for certified functional efficacy.
+        </p>
+        <div class="quote-highlight">
+          "For health-conscious urban Indians seeking functional well-being in their non-stop routines, Bisleri Health is the daily hydration choice that delivers certified active minerals, electrolytes, and collagen benefits, because it merges 50 years of trusted Indian purity with modern restorative science."
+        </div>
+        <p>
+          Looking at our <strong>Product Life Cycle (PLC)</strong>: classic Bisleri packaged water is currently in late maturity—it is our indispensable cash cow generating reliable operating cash flows. But its growth is flattening under ₹15 discounting. <strong>Bisleri Health</strong> represents our aggressive re-entry into the steep growth introductory curve, leveraging our unbeatable 6,000-distributor logistics to extract 50%+ margins.
+        </p>
+        <p>
+          Let’s examine the real ground-level data behind this strategy with Speaker 4."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>Segmentation</strong>Demographic (22–45), Psychographic (wellness), Behavioral (active).</div>
+        <div class="kd-item"><strong>Positioning Statement</strong>50-yr trusted purity + active restorative science for non-stop lives.</div>
+        <div class="kd-item"><strong>PLC Growth Curve</strong>Classic Bisleri cash cow funds Bisleri Health high-margin expansion.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Let’s examine the real ground-level data behind this strategy with Speaker 4."</span>
+    </div>
+  </div>
+
+  <!-- ==================== SPEAKER 4 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 4</span>
+        <h3 class="speaker-role">Field Ethnography &amp; Hydration Culture</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.5 MIN</span>
+        <span class="badge-tag badge-media">📹 YouTube: Research Film (XRwckJGZQ0g)</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 7 displays the Research Theater frame. Below it, the three Real Voices cards appear with animated audio waveforms.
+      </div>
+      <div class="speech-text">
+        <p>
+          "We did not build this strategy in an ivory tower. We deployed rigorous field ethnography across <strong>1,200 urban respondents</strong> in Delhi NCR, Mumbai, and Bengaluru.
+        </p>
+        <p>
+          Our finding was unanimous: passive, plain bottled water lacks the sensory reward and timely replenishment cues required by busy urbanites. People carry bottles religiously, but they only drink when the dehydration headache has already arrived."
+        </p>
+      </div>
+      <div class="stage-direction">
+        Speaker triggers playback of the YouTube research film (<code>XRwckJGZQ0g</code>). Screen highlights authentic respondent quotes with audio waveform indicators.
+      </div>
+      <div class="speech-text">
+        <p>
+          "You just witnessed real consumer voices:
+          <strong>Aarav (21, engineering student &amp; runner):</strong> <em>'I never forget my bottle, but plain water doesn't restore my energy after sprints.'</em>
+          <strong>Tara (33, product manager):</strong> <em>'...and then I realise that I forgot to drink the water until my 4 PM migraine.'</em>
+          <strong>Ravi (24, sales executive):</strong> <em>'Electrolytes make an immediate, tangible difference to my 3 PM slump.'</em>
+        </p>
+        <p>
+          To make hydration non-negotiable, we are introducing an experiential <strong>Hydration &amp; Tasting Culture</strong>: certified Water Sommelier mineral flights comparing TDS and alkalinity mouthfeel, alongside zero-sugar <strong>Cryo-Chill</strong> molecular mist mocktails. Hydration ceases to be a chore; it becomes a sensory daily ritual.
+        </p>
+        <p>
+          To see how our three product pillars deliver on this promise, here is Speaker 5."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>1,200 Field Interviews</strong>Corporate parks, gyms, transit hubs across 3 major metros.</div>
+        <div class="kd-item"><strong>Consumer Barrier</strong>Water without functional taste fails to prompt timely intake.</div>
+        <div class="kd-item"><strong>Sommelier Flights</strong>TDS/alkalinity flights &amp; Cryo-Chill zero-sugar functional mocktails.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"To see how our three product pillars deliver on this promise, here is Speaker 5."</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== SPEAKER 5 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 5</span>
+        <h3 class="speaker-role">Product Portfolio, Innovation Range &amp; Pack Engineering</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.5 MIN</span>
+        <span class="badge-tag badge-media">📹 YouTube: Social Ad (KQVRxZ3AL84) &bull; Product Ad (0yaHzCLJFvg)</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 12 opens with the three-product hero render, showcasing the YouTube Social Ad (<code>KQVRxZ3AL84</code>) placed directly above the YouTube Product Commercial (<code>0yaHzCLJFvg</code>), followed by the interactive pack hotspot showcase.
+      </div>
+      <div class="speech-text">
+        <p>
+          <em>"Different needs. One step towards taking better care."</em>
+        </p>
+        <p>
+          "This is the Bisleri Health portfolio—engineered around three scientifically formulated pillars matched directly to the three moments of Tara's day:
+        </p>
+        <p>
+          <strong>01. Bisleri Active (Electrolyte+ Performance):</strong> Packaged in a sleek 330ml recyclable aluminium can. Formulated with 500mg of bio-available sodium, potassium, and magnesium. Designed for post-workout sweat replenishment and rapid cellular rehydration without artificial sugars.
+        </p>
+        <p>
+          <strong>02. Bisleri Life (Everyday Mineral &amp; Low Sodium):</strong> Delivered in a sustainable, FSC-certified 500ml paper carton. Featuring balanced mineral hydration and low sodium, perfect for daily desk consumption and children's school packs.
+        </p>
+        <p>
+          <strong>03. Bisleri Wellness (Collagen &amp; Inner Glow):</strong> Housed in a premium 500ml UV-protected tinted glass bottle. Infused with hydrolyzed marine collagen peptides and Vitamin C to support skin elasticity, tissue repair, and evening wind-down."
+        </p>
+      </div>
+      <div class="stage-direction">
+        Speaker clicks a pulsating hotspot on the pack display to showcase ingredient transparency (sodium, potassium, collagen) and packaging sustainability.
+      </div>
+      <div class="speech-text">
+        <p>
+          "Notice our industrial design: every pack is 100% recyclable or paper-based, completely eliminating cheap PET plastic perception. We have turned a throwaway commodity into an aesthetic desktop accessory.
+        </p>
+        <p>
+          Next, Speaker 6 will walk us through our financial allocation and budget strategy."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>Active (Aluminium Can)</strong>500mg Electrolytes (Na, K, Mg) for athletic and workout replenishment.</div>
+        <div class="kd-item"><strong>Life (Paper Carton)</strong>Low-sodium everyday mineral balance in eco-friendly packaging.</div>
+        <div class="kd-item"><strong>Wellness (Glass Bottle)</strong>Marine Collagen + Vit C for skin elasticity and evening glow.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Next, Speaker 6 will walk us through our financial allocation and budget strategy."</span>
+    </div>
+  </div>
+
+  <!-- ==================== SPEAKER 6 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 6</span>
+        <h3 class="speaker-role">Financial Allocation, Unit Economics &amp; Budget Strategy</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.0 MIN</span>
+        <span class="badge-tag badge-media">📊 Slide 15 Budget Matrix</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 15 displays the interactive ₹10 Crore financial allocation dashboard with four color-coded allocation bars and Month 6 ROI projections.
+      </div>
+      <div class="speech-text">
+        <p>
+          "To secure category leadership immediately and build an unassailable moat, we are deploying a total launch investment of <strong>₹10 Crore</strong> phased strategically over the initial 90 days.
+        </p>
+        <p>
+          Here is our capital allocation:
+          <br>&bull; <strong>₹4.00 Cr (40.0%) &bull; Digital Marketing &amp; Influencer:</strong> Targeted performance ads, routine integration reels, creator unboxings, and co-funded top-of-search banners on Blinkit, Zepto, and Instamart.
+          <br>&bull; <strong>₹3.00 Cr (30.0%) &bull; Experiential Flagship Pavilion &amp; Events:</strong> Constructing our immersive sensory pop-up dome at DLF CyberHub, marathon hydration lounges, and workplace mindful break sampling.
+          <br>&bull; <strong>₹2.00 Cr (20.0%) &bull; High-Impact Transit OOH &amp; Smart Vending:</strong> Subway escalator triptychs and platform lightboxes across 24 prime metro stations, plus deploying chilled IoT smart vending kiosks in premium gyms.
+          <br>&bull; <strong>₹1.00 Cr (10.0%) &bull; PR Activities &amp; VIP Mystery Kits:</strong> Tier-1 business and lifestyle media roundtables, health editor preview flights, and zero-hour mystery countdown kits.
+        </p>
+        <p>
+          <strong>Unit Economics &amp; Margins:</strong> While our ₹20 commodity line yields 12–15% gross margin, Bisleri Health operates at <strong>52% to 58% gross margin</strong>. We project a <strong>3.5x Return on Marketing Investment (ROMI)</strong> by Month 6, expanding our company's blended gross margin by <strong>+18%</strong>.
+        </p>
+        <p>
+          Let’s see how this capital translates into real-world consumer touchpoints with Speaker 7."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>₹4.00 Cr Digital (40%)</strong>Performance meta ads &bull; 10-min Blinkit/Zepto quick-commerce sync.</div>
+        <div class="kd-item"><strong>₹3.00 Cr Pavilion &amp; Events (30%)</strong>Flagship Sensory Dome at CyberHub &bull; 200,000+ targeted samples.</div>
+        <div class="kd-item"><strong>₹3.00 Cr OOH, Vending &amp; PR (30%)</strong>Metro escalator triptychs, 150+ IoT gym kiosks &amp; PR mystery kits.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Let’s see how this capital translates into real-world consumer touchpoints with Speaker 7."</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== SPEAKER 7 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 7</span>
+        <h3 class="speaker-role">360° Omnichannel Campaign &amp; Retail Touchpoints</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.5 MIN</span>
+        <span class="badge-tag badge-media">📱 Social ad.mp4 &bull; OOH</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Slide 17 displays the 4-phase launch calendar. On the right, the interactive Instagram mobile mockup plays the Social Ad (<code>KQVRxZ3AL84</code>). Slides 19 &amp; 21 follow with the subway triptych and smart vending kiosk photos.
+      </div>
+      <div class="speech-text">
+        <p>
+          "We surround Tara with an omnichannel narrative across a synchronized four-phase launch:
+          <br><strong>Phase 1: Anticipation:</strong> Mystery teasers (<em>'When do you pause?'</em>) and interactive polling (<em>'Non-stop vs Balanced?'</em>).
+          <br><strong>Phase 2: Launch Reveal:</strong> Unveiling the 3 Pillars through <em>'Life Doesn't Wait, Hydrate with Purpose'</em>.
+          <br><strong>Phase 3: Range Education:</strong> Ingredient deep-dives for Active, Life, and Wellness.
+          <br><strong>Phase 4: Instant Conversion:</strong> 10-minute instant delivery buttons directly on Instagram and LinkedIn.
+        </p>
+        <p>
+          <strong>High-Impact Transit OOH:</strong> In high-density metro hubs, we have deployed our <strong>Subway Escalator Triptych</strong>. As commuters ascend, they experience Active, Life, and Wellness in sequence, capturing <strong>42 seconds of uninterrupted dwell time</strong> across 1.8 Million daily riders, terminating at our high-impact platform lightboxes.
+        </p>
+        <p>
+          <strong>Smart Hydration Vending Kiosks:</strong> Simultaneously, we have deployed automated, chilled IoT dispensers inside premium fitness chains like Cult.fit and corporate campuses. We place the product precisely where the sweat, stress, and screen fatigue happen.
+        </p>
+        <p>
+          Finally, Speaker 8 will take us inside our experiential flagship launch event."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>4-Phase Digital Blitz</strong>Tease &rarr; Launch Reveal &rarr; Range Education &rarr; 10-Min Delivery.</div>
+        <div class="kd-item"><strong>Escalator Triptych</strong>42-second dwell time across 24 prime metro interchange stations.</div>
+        <div class="kd-item"><strong>Smart IoT Vending</strong>Chilled, cashless dispensers in 150+ gyms and corporate lobbies.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Finally, Speaker 8 will take us inside our experiential flagship launch event."</span>
+    </div>
+  </div>
+
+  <!-- ==================== SPEAKER 8 ==================== -->
+  <div class="speaker-section">
+    <div class="speaker-header">
+      <div class="speaker-identity">
+        <span class="speaker-num">SPEAKER 8</span>
+        <h3 class="speaker-role">Experiential Flagship Pavilion &amp; Executive Closing</h3>
+      </div>
+      <div class="speaker-meta-tags">
+        <span class="badge-tag badge-time">⏱ 2.5 MIN</span>
+        <span class="badge-tag badge-media">🌐 walkthrough.html</span>
+      </div>
+    </div>
+    <div class="speaker-body">
+      <div class="stage-direction">
+        Speaker 8 opens the live <code>walkthrough.html</code> page. The interactive 3D architectural viewer navigates the four zones of the Bisleri Health Flagship Pavilion.
+      </div>
+      <div class="speech-text">
+        <p>
+          "To cement our wellness credentials and generate unmissable social media earned reach, we are introducing the <strong>Bisleri Health Flagship Hydration Pavilion</strong>.
+        </p>
+        <p>
+          Let's walk through the physical experience:
+          <br><strong>Zone 1: The Kinetic Entrance Portal:</strong> An 18°C ultrasonic fine mineral mist archway designed to reset urban stress and cool down commuters before they cross the threshold.
+          <br><strong>Zone 2: The 360° Cellular Immersion Dome:</strong> An 8K projection dome paired with 432Hz binaural acoustic frequencies, illustrating cellular hydration from the inside out.
+          <br><strong>Zone 3: Three Pillars Discovery Bar:</strong> A craft functional mixology bar featuring certified water sommeliers offering TDS mineral flights and liquid-nitrogen frosted Cryo-Chill mocktails.
+          <br><strong>Zone 4: Smart Hydration Lab:</strong> Utilizing non-invasive galvanic skin response and dermal capacitance scanners, consumers receive an instant bio-hydration score and a personalized product prescription.
+        </p>
+        <div class="quote-highlight">
+          "Leadership team, Bisleri Health is not just about adding another SKU to our trucks. We are taking a ₹20 commodity and transforming it into India’s most trusted, premium daily health habit. We built the category of pure water; now we will own the category of functional vitality."
+        </div>
+        <p>
+          Thank you. We are now open for the board’s questions."
+        </p>
+      </div>
+      <div class="key-deliverables-grid">
+        <div class="kd-item"><strong>Zone 1 &amp; 2: Reset &amp; Immersion</strong>18°C Ultrasonic mist archway &bull; 360° 8K cellular projection dome.</div>
+        <div class="kd-item"><strong>Zone 3: Discovery Bar</strong>Sommelier mineral flights &bull; Cryo-Chill zero-sugar mocktails.</div>
+        <div class="kd-item"><strong>Zone 4: Bio-Hydration Lab</strong>Skin capacitance scanners delivering personalized pack matching.</div>
+      </div>
+    </div>
+    <div class="handoff-box">
+      <strong>Transition Cue</strong>
+      <span>"Thank you. We are now open for the board’s questions."</span>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- ==================== EXECUTIVE Q&A DEFENSE ==================== -->
+  <div style="margin-top: 10px;">
+    <h2 style="font-family: 'Playfair Display', Georgia, serif; color: #0f5c4a; font-size: 16pt; margin-bottom: 12px; border-bottom: 2px solid #d98a9b; padding-bottom: 6px;">
+      EXECUTIVE BOARD Q&amp;A DEFENSE GUIDE (PRE-EMPTIVE STRATEGY)
+    </h2>
+
+    <div class="qa-card">
+      <div class="qa-q">❓ Q1. Won’t consumers resist paying ₹40 to ₹60 when regular Bisleri is ₹20?</div>
+      <div class="qa-a">
+        <strong>Defense (Speaker 1 / 3 / 6):</strong> "Consumers resist paying ₹40 for <em>water</em>; they eagerly pay ₹60 to ₹150 for <em>functional benefits</em>—as demonstrated by Red Bull (₹125), coconut water (₹60), and electrolyte powders (₹30+). Bisleri Health is not competing with commodity water bottles in grocery crates; it is competing in the quick-commerce wellness basket against RTD nutraceuticals and sports drinks. Furthermore, our premium recyclable packaging (can, carton, glass) creates immediate visual and tactile value differentiation."
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="qa-q">❓ Q2. How will our manufacturing supply chain handle cans, paper cartons, and glass bottles alongside standard PET?</div>
+      <div class="qa-a">
+        <strong>Defense (Speaker 5 / 6):</strong> "Phase 1 utilizes specialized co-packing agreements with established canning (aluminium) and aseptic carton (Tetra Pak style) facilities in Mumbai and NCR, requiring zero immediate CAPEX on new machinery. Our ₹10 Cr budget funds working capital and tooling. As volumes hit Month 6 milestones (120,000 units/day), we will transition high-speed lines in our existing Pune and Greater Noida plants into dedicated functional bottling lines."
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="qa-q">❓ Q3. What prevents local copycats from launching cheap 'electrolyte waters' at ₹25?</div>
+      <div class="qa-a">
+        <strong>Defense (Speaker 1 / 4):</strong> "Unorganized players lack three things: FSSAI nutraceutical grade certifications, scientific clinical credibility, and most importantly, Bisleri’s 50-year heritage of trust. In functional health, consumers are terrified of counterfeit or substandard electrolyte formulations. Bisleri’s name guarantees pharmaceutical-grade purity that no local player can replicate."
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="qa-q">❓ Q4. How do Smart Vending Kiosks justify their operational maintenance and restocking costs?</div>
+      <div class="qa-a">
+        <strong>Defense (Speaker 6 / 7):</strong> "Our Smart Vending Kiosks are equipped with real-time IoT weight and telemetry sensors connected to our local distribution ERP. Route trucks already service nearby grocery and retail outlets daily; restocking a kiosk requires no dedicated logistics run. With an average of 80 cans sold per gym/campus kiosk per day at ₹40, each machine breaks even on operating lease within 4.2 months."
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bisleri Health Final Submission &bull; Master Board Script</span>
+      <span>Prepared for Academic &amp; Strategic Review &bull; CEM 2026</span>
+    </div>
+  </div>
+
+</body>
+</html>

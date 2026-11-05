@@ -1,0 +1,4 @@
+# Large local video files (exceeding 100MB GitHub limit; now hosted on YouTube)
+*.mp4
+logo_frames/
+*.py

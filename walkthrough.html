@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bisleri Health | Flagship Pavilion Launch Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="walkthrough.css">
+</head>
+<body class="walkthrough-page">
+
+  <!-- Top Walkthrough Navigation -->
+  <header class="walk-header">
+    <div class="walk-header-in">
+      <a href="index.html" class="walk-back-btn">&#8592; Back to Launch Deck</a>
+      <div class="walk-brand">
+        <img class="walk-logo" data-img="logoIcon" alt="Bisleri Health">
+        <div class="walk-title-meta">
+          <span class="walk-sub">EXPERIENTIAL PAVILION</span>
+          <h1>Flagship Hydration Pavilion</h1>
+        </div>
+      </div>
+      <div class="walk-header-actions">
+        <button id="soundToggle" class="pill-ambient">&#128266; Sound: ON</button>
+        <button id="autoTourBtn" class="pill-primary">&#9654; Auto-Tour</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Container (Decluttered & Spacious) -->
+  <main class="walk-main">
+    <div class="walk-viewport-container">
+      
+      <!-- Left: Focused Visualizer Stage -->
+      <div class="walk-stage" id="stageViewport">
+        <div class="stage-ambient-glow" id="stageGlow"></div>
+        
+        <div class="stage-content">
+          <div class="stage-zone-kicker" id="stageKicker">ZONE 01 &bull; WELCOME PORTAL</div>
+          <h2 class="stage-zone-title" id="stageTitle">Arrival &amp; Hydration Arch</h2>
+
+          <!-- Centerpiece Viewport -->
+          <div class="stage-centerpiece-container">
+            <div class="stage-photo-frame" id="stagePhotoFrame">
+              <img id="stageRealPhoto" class="stage-real-photo" src="portal_arch.png" alt="Zone Experience">
+            </div>
+            <div class="stage-center-pedestal" id="stagePedestal" style="display:none;">
+              <div class="pedestal-ring r-outer"></div>
+              <div class="pedestal-ring r-inner"></div>
+              <div class="pedestal-base"></div>
+              <img id="stagePackImg" class="stage-pack" data-img="can" alt="Zone Feature">
+            </div>
+          </div>
+
+          <p class="stage-brief-desc" id="stageDesc">
+            Guests step through a gentle cooling mist archway, receiving their personalised wellness passport.
+          </p>
+        </div>
+
+        <!-- Clean Navigation Controls -->
+        <div class="stage-controls">
+          <button id="prevZoneBtn" class="stage-nav-arrow" aria-label="Previous Zone">&#8592;</button>
+          
+          <div class="stage-step-pills" id="stepPills">
+            <button class="step-pill on" data-z="0">01 Arrival</button>
+            <button class="step-pill" data-z="1">02 Film Dome</button>
+            <button class="step-pill" data-z="2">03 Range Lab</button>
+            <button class="step-pill" data-z="3">04 Tasting Bar</button>
+            <button class="step-pill" data-z="4">05 QR Vault</button>
+          </div>
+
+          <button id="nextZoneBtn" class="stage-nav-arrow" aria-label="Next Zone">&#8594;</button>
+        </div>
+      </div>
+
+      <!-- Right: Minimalist Architectural Floorplan & Zone Quick-Select -->
+      <div class="walk-sidebar">
+        <div class="sidebar-top">
+          <h3>Architectural Blueprint</h3>
+          <span class="floorplan-sub">Interactive 5-Zone Flow</span>
+        </div>
+
+        <div class="walk-floorplan-box" id="walkFloorplan">
+          <svg viewBox="0 0 540 280">
+            <rect x="14" y="14" width="512" height="252" rx="22" fill="#f8fcf9" stroke="#cfe3da" stroke-width="1.5"/>
+            <path d="M55 210 Q95 90 145 80 T270 170 Q325 80 380 75 T465 190" fill="none" stroke="#d98a9b" stroke-width="2.5" stroke-dasharray="4 8" stroke-linecap="round"/>
+            <g id="svgPins"></g>
+            <g id="visPin" style="transform:translate(85px,220px);transition:transform 0.8s cubic-bezier(0.2,0.8,0.2,1);">
+              <circle r="10" fill="#d98a9b" stroke="#fff" stroke-width="2.5"/>
+              <circle r="16" fill="none" stroke="#d98a9b" stroke-width="1.5" opacity="0.6"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Sleek Zone List -->
+        <div class="walk-zone-list" id="zoneList"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="assets.js"></script>
+  <script src="walkthrough.js"></script>
+</body>
+</html>
